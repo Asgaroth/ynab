@@ -34,7 +34,11 @@ function writeHeaders(data) {
 }
 
 function writeFile(err, csvData) {
-  fs.writeFile('ynab.csv', csvData);
+  fs.writeFile('ynab.csv', csvData, err => {
+    if (err) {
+      console.log(err);
+    }
+  });
 }
 
 function formatDate(date) {
